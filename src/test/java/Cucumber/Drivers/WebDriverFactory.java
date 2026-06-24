@@ -9,6 +9,18 @@ public class WebDriverFactory {
             case "chrome":
                 driver=ChromeDriverClass.getChromeDriver();
                 break;
+
+            case "edge":
+                driver = EdgeDriverClass.getEdgeDriver();
+                break;
+
+            case  "firefox":
+                driver = FirefoxDriverClass.getFirefoxDriver();
+                break;
+
+            default:
+                throw new IllegalArgumentException("Browser not supported");
         }
+        return driver;
     }
 }
