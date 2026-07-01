@@ -13,7 +13,7 @@ public class Hooks extends BaseTest{
     @Before
     public void setup(){
         driver = WebDriverFactory.getDriver("chrome");
-        driver.get("https://www.noon.com/egypt-ar/");
+        driver.get("https://www.noon.com/egypt-en/");
         homePage = new HomePage(driver);
         softAssert = new SoftAssert();
     }
