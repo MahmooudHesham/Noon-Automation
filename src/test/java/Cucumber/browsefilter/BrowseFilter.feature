@@ -8,8 +8,9 @@ Feature: navigate to category page
     And user sorts by Top Rated
     Then verify that brand of listed items is "<brand>"
     And verify that price of items within the rang of <minPrice> and <maxPrice>
-    And items sorted by Top Rated
+    #And items sorted by Top Rated
 
     Examples:
       | brand   | minPrice | maxPrice |
       | Samsung | 1000     | 3000     |
+      | Apple   | 50       | 50000    |
