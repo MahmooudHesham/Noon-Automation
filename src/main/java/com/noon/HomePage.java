@@ -3,11 +3,13 @@ package com.noon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class HomePage extends  BasePage{
     private final By electronicsCategory = By.xpath("//span[text()='Electronics']");
+    private final By searchBar = By.id("search-input");
     private static final Logger logger = LogManager.getLogger(HomePage.class);
 
     public HomePage(WebDriver driver) {
@@ -25,5 +27,11 @@ public class HomePage extends  BasePage{
             logger.warn("Failed to move mouse offset, trying alternative blur", e);
         }
         return  new ElectronicsPage(driver);
+    }
+
+    public SearchPage searchOnItem(String item){
+        findElement(searchBar).sendKeys(item);
+        findElement(searchBar).sendKeys(Keys.ENTER);
+        return new SearchPage( driver);
     }
 }

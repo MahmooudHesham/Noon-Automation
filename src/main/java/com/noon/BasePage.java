@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
     public WebDriver driver;
@@ -24,6 +25,11 @@ public class BasePage {
     public WebElement findElement(By locator){
         logger.info("Finding element with locator: " + locator.toString());
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public List<WebElement> findElements(By locator) {
+        logger.info("Finding elements with locator: " + locator.toString());
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 
     public void scrollToElement(WebElement element) {

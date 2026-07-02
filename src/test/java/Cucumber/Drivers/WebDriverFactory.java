@@ -3,11 +3,13 @@ package Cucumber.Drivers;
 import org.openqa.selenium.WebDriver;
 
 public class WebDriverFactory {
-    public static WebDriver driver;
-    public static WebDriver getDriver(String browser) {
+    // Removed static to ensure a new driver is created for each call to getDriver()
+    public WebDriver driver;
+
+    public WebDriver getDriver(String browser) {
         switch (browser.toLowerCase()) {
             case "chrome":
-                driver=ChromeDriverClass.getChromeDriver();
+                driver = ChromeDriverClass.getChromeDriver();
                 break;
 
             case "edge":
